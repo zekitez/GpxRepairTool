@@ -96,3 +96,4 @@ http://forums.purebasic.com/english/viewtopic.php?f=15&t=74875 . This can be a r
 Its a 64 bit Intel/AMD version (M1 excluded). No further actions needed.
 
 ![Screenshot](docs/mac.png)
+
