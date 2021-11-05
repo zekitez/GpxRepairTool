@@ -85,15 +85,21 @@ The program does :
 
 its a 64 bit version. No further actions required.
 
-![Screenshot](docs/screen.png)
+![Screenshot](pics/Windows.png)
 
 # Run on Linux
 
 Its a 64 bit version. You may have to install several packages before the program runs. See:
 http://forums.purebasic.com/english/viewtopic.php?f=15&t=74875 . This can be a real challenge if you are not familiar with Linux. The Purebasic IDE still crashes when I try to run the app but the compiled app works fine.
 
+![Screenshot](pics/Linux.png)
+
 # Run on MacOs (Intel/Amd only)
 
 Its a 64 bit Intel/AMD version (M1 excluded). No further actions needed.
+
+![Screenshot](pics/Imac.png)
+
+
 
 ![Screenshot](docs/mac.png)
