@@ -17,7 +17,7 @@ img
 - [How hard can it be to repair a .fit file ?](#how-hard-can-it-be-to-repair-a-fit-file-)
 - [Run on Windows](#run-on-windows)
 - [Run on Linux](#run-on-linux)
-- [Run on MacOs (Intel/Amd only)](#run-on-macos-intelamd-only)
+- [Run on MacOs](#run-on-macos)
 
 # Introduction
 
@@ -94,9 +94,9 @@ http://forums.purebasic.com/english/viewtopic.php?f=15&t=74875 . This can be a r
 
 ![Screenshot](pics/Linux.png)
 
-# Run on MacOs (Intel/Amd only)
+# Run on MacOs
 
-Its a 64 bit Intel/AMD version (M1 excluded). No further actions needed.
+Its a 64 bit Intel/AMD version (M1 via Rosetta ?). No further actions needed.
 
 ![Screenshot](pics/Imac.png)
 
