@@ -80,6 +80,9 @@ The program does :
   * Flatten the leading measerements with the same latitude+longitude
   * Add a number of trailing measurements.
     This is not really needed if the stop procedure was executed correctly but it extends the .gpx file so it will fit over the video recording.
+  * Use GPX 1.1 format, if needed.
+    Speed tags are removed because the speed is derived from the changing latitude+longitude and the GPX version is updated to 1.1 .
+
 
 # Run on Windows
 
