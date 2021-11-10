@@ -21,7 +21,7 @@ img
 
 # Introduction
 
-I started making videos with a GoPro Hero 9 and uploaded them in KinoMap but sometimes "My video isn't available in Kinomap apps, why ?". Read [https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-](https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-) . One reason is missing in the list: **The GPS data is not good enough**. The GPS data is extracted with GoPro Telemetry Extractor (Lite and free) from the GoPro video. Load this data in GpsTrackEditor and you will see that latitude+longitude are inaccurate and the elevation... is from another planet. I started to record GPS data with a Garmin Edge 830. KinoMap can handle the Garmin GPS data (.fit file). But sometimes the problem persisted:  "My video isn't available in Kinomap apps, why ?". Later I realized the problem with the Garmin GPS recording happens only in dense forest sections where it is still humid and the trees are wet from the rain. Thus the Garmin had bad signal reception !! This does NOT apply to the GoPro GPS data: its just always... not good enough. Note that I use a click-on chin mount on a Fox ProFrame helmet.
+I started making videos with a GoPro Hero 9 and uploaded them in KinoMap but sometimes "My video isn't available in Kinomap apps, why ?". Read [https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-](https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-) . One reason is missing in the list: **The GPS data is not good enough**. The GPS data is extracted with GoPro Telemetry Extractor (Lite and free) from the GoPro video. Load this data in GpsTrackEditor and you will see that latitude+longitude are inaccurate and the elevation... is from another planet. I started to record GPS data with a Garmin Edge 830. KinoMap can handle the Garmin GPS data (.fit file). But sometimes the problem persisted:  "My video isn't available in Kinomap apps, why ?". Later I realized the problem with the Garmin GPS recording happens only in dense, humid and wet forest sections. Thus the Garmin had bad signal reception !! This does NOT apply to the GoPro GPS data: its just always... not good enough. Note that I use a click-on chin mount on a Fox ProFrame helmet.
 
 The recording procedure is always the same: first start the GPS recording with the Garmin and after a few seconds start the video recording with the GoPro. And to stop : first stop the video recording and after a few seconds stop the GPS recording. This way there is always overlap of GPS measurements for the video which should result in a more easy synchronissation of video and GPS data in Kinomap.
 
@@ -48,6 +48,7 @@ Later with my own software, and another tool GpsTrackEditor, I discovered that a
 * GpsBabel https://www.gpsbabel.org/ or https://github.com/gpsbabel/gpsbabel
 * GpsTrackEditor http://www.gpstrackeditor.com/
 * GpxStudio https://gpx.studio/
+* GpsVisualizer https://www.gpsvisualizer.com/
 * GPX format https://en.wikipedia.org/wiki/GPS_Exchange_Format and https://www.topografix.com/gpx.asp
 * GoToes.org or Strava https://gotoes.org/strava/
 * LossLessCut, for already merged GoPro videos, https://github.com/mifi/lossless-cut
@@ -58,8 +59,12 @@ Later with my own software, and another tool GpsTrackEditor, I discovered that a
 
 On the Garmin website you can find conversion tools and code but after some experimenting, a simple forward-back conversion to .csv and back to .fit, with the FitCvsTool the results where poor (even crashes). The same applies to some online tools I found.
 
-Kinomap accepts .gpx files so if the .fit file is translated to .gpx then I am free to repair the data (very simple: with an editor). There are freeware tools that can translate GPS formats into other GPS formats, I used: GpsBabel. GpsBabel will also display the .fit file in a map. Translating a .gpx file back to a .fit file failed. I had only crashes or bad .fit files. I assume the .gpx file misses information required for a .fit file.
-There are also on line tools you could use, examples: Gotoes utilities for Strava (reduces the decimal part of latitude and longitude to 5 decimals compared to 9 with GpsBabel) or AllTrails (compared to what GpsBabel: the elevations differ up to 10 meter, the elevation has no decimal part, it doesn't include extensions (sensor data, cadans, temperature, etc) ). To view the repaired .gpx file on a map I use the tools: GpxStudio, GpsTrackEditor and VeloHero. To compare the original and repaired .gpx file I use WinMerge.  GpsBabel translates .fit files recorded in smart mode to GPX 1.1 (the speed tag was removed from this format but extensions are included) and the 1 second mode to GPX 1.0 (including the speed tag but excluding extensions). 
+Kinomap accepts .gpx files so if the .fit file is translated to .gpx then I am free to repair the data (very simple: with an editor). There are freeware tools that can translate GPS formats into other GPS formats, I used: GpsBabel but I also like the online tool: GpsVisulizer. GpsBabel will also display the .fit file in a map. Translating a .gpx file back to a .fit file failed. I had only crashes or bad .fit files. I assume the .gpx file misses information required for a .fit file.
+There are also on line tools you could use, examples: 
+* Gotoes utilities for Strava (reduces the decimal part of latitude and longitude to 5 decimals compared to 9 with GpsBabel), 
+* GpsVisualizer (decimal part is 6 decimals, good enough, but no extensions) or 
+* AllTrails (compared to what GpsBabel: the elevations differ up to 10 meter, the elevation has no decimal part, it doesn't include extensions (sensor data, cadans, temperature, etc) ). 
+To view the repaired .gpx file on a map I use the tools: GpxStudio, GpsTrackEditor and VeloHero. To compare the original and repaired .gpx file I use WinMerge.  GpsBabel translates .fit files recorded in smart mode to GPX 1.1 (the speed tag was removed from this format but extensions are included) and the 1 second mode to GPX 1.0 (including the speed tag but excluding extensions). 
 
 Thus the way to go is simple: use GpsBabel to convert the .fit file into a .gpx file and then run my own tool to repair the .gpx file. I wrote a program, in Purebasic, that repairs the .gpx file for me. Why PureBasic ? Its easy to program, has a build-in XML parser and functions to manipulate XML (move, delete, insert, etc), runs on Windows + Linux + MacOs, and I already had a license and used it for other tools.
 
@@ -81,7 +86,7 @@ The program does :
   * Add a number of trailing measurements.
     This is not really needed if the stop procedure was executed correctly but it extends the .gpx file so it will fit over the video recording.
   * Use GPX 1.1 format, if needed.
-    Speed tags are removed because the speed is derived from the changing latitude+longitude and the GPX version is updated to 1.1 .
+    Speed tags are removed because the speed is derived from the changing latitude+longitude in version 1.1, and the GPX version attributes are updated to 1.1 .
 
 
 # Run on Windows
@@ -102,7 +107,3 @@ http://forums.purebasic.com/english/viewtopic.php?f=15&t=74875 . This can be a r
 Its a 64 bit Intel/AMD version (M1 via Rosetta ?). No further actions needed.
 
 ![Screenshot](pics/Imac.png)
-
-
-
-![Screenshot](docs/mac.png)
