@@ -63,7 +63,8 @@ Kinomap accepts .gpx files so if the .fit file is translated to .gpx then I am f
 There are also on line tools you could use, examples: 
 * Gotoes utilities for Strava (reduces the decimal part of latitude and longitude to 5 decimals compared to 9 with GpsBabel), 
 * GpsVisualizer (decimal part is 6 decimals, good enough, but no extensions) or 
-* AllTrails (compared to what GpsBabel: the elevations differ up to 10 meter, the elevation has no decimal part, it doesn't include extensions (sensor data, cadans, temperature, etc) ). 
+* AllTrails (compared to what GpsBabel: the elevations differ up to 10 meter, the elevation has no decimal part, it doesn't include extensions (sensor data, cadans, temperature, etc) ).
+ 
 To view the repaired .gpx file on a map I use the tools: GpxStudio, GpsTrackEditor and VeloHero. To compare the original and repaired .gpx file I use WinMerge.  GpsBabel translates .fit files recorded in smart mode to GPX 1.1 (the speed tag was removed from this format but extensions are included) and the 1 second mode to GPX 1.0 (including the speed tag but excluding extensions). 
 
 Thus the way to go is simple: use GpsBabel to convert the .fit file into a .gpx file and then run my own tool to repair the .gpx file. I wrote a program, in Purebasic, that repairs the .gpx file for me. Why PureBasic ? Its easy to program, has a build-in XML parser and functions to manipulate XML (move, delete, insert, etc), runs on Windows + Linux + MacOs, and I already had a license and used it for other tools.
