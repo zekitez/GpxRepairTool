@@ -1,14 +1,3 @@
-<style>
-img
-{
-    display:block;
-    float:none;
-    margin-left:auto;
-    margin-right:auto;
-    width:100%;
-}
-</style>
-
 # Table of contents
 
 - [Table of contents](#table-of-contents)
@@ -21,7 +10,13 @@ img
 
 # Introduction
 
-I started making videos with a GoPro Hero 9 and uploaded them in KinoMap but sometimes "My video isn't available in Kinomap apps, why ?". Read [https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-](https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-) . One reason is missing in the list: **The GPS data is not good enough**. The GPS data is extracted with GoPro Telemetry Extractor (Lite and free) from the GoPro video. Load this data in GpsTrackEditor and you will see that latitude+longitude are inaccurate and the elevation... is from another planet. I started to record GPS data with a Garmin Edge 830. KinoMap can handle the Garmin GPS data (.fit file). But sometimes the problem persisted:  "My video isn't available in Kinomap apps, why ?". Later I realized the problem with the Garmin GPS recording happens only in dense, humid and wet forest sections. Thus the Garmin had bad signal reception !! This does NOT apply to the GoPro GPS data: its just always... not good enough. Note that I use a click-on chin mount on a Fox ProFrame helmet.
+I started making videos with a GoPro Hero 9 and uploaded them in KinoMap but sometimes "My video isn't available in Kinomap apps, why ?". Read [https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-](https://support.kinomap.com/hc/en-us/articles/360000294886-My-video-isn-t-available-in-Kinomap-apps-why-) . One reason is missing in the list: **The GPS data is not good enough**. The GPS data is extracted with the GoPro Telemetry Extractor (Lite and free) from the GoPro video. Load this data in GpsTrackEditor and you will see that latitude+longitude are inaccurate and the elevation... is from another planet. I started to record GPS data with a Garmin Edge 830. KinoMap can handle the Garmin GPS data (.fit file). But sometimes the problem persisted:  "My video isn't available in Kinomap apps, why ?". Later I realized the problem with the Garmin GPS recording happens only in dense, humid and wet forest sections. Thus the Garmin had bad signal reception !! This does NOT apply to the GoPro GPS data: its just always... not good enough. Note that I use a click-on chin mount on a Fox ProFrame helmet.
+
+In the screenshot of the map in GpsTrackEditor, the start of the ["MTB VTT from Nijverdal to Holten in the autumn"](https://videos.kinomap.com/en/watch/mtbx4c) recording. The RED line is the Garmin GPS data. The ORANGE sequence of arrows is the GoPro Hero 9. The recording starts at the Parking with Gopro:29 and Garmin:43 meter elevation. The deepest point is with Gopro:-48 (...?) and Garmin:31 meter elevation. According to Google Earth its 40 and 31 meters elevation. The Gopro records GPS data at approx 18-19 Hz while the Garmin records in any recording mode at 1Hz maximum. Is the difference caused by the the GoPro Telemetry Extractor ? 
+
+<p align="center">
+   <img src="pics/GoproGarmin.png" alt="GoPro and Garmin GPPS recording."/>
+</p>
 
 The recording procedure is always the same: first start the GPS recording with the Garmin and after a few seconds start the video recording with the GoPro. And to stop : first stop the video recording and after a few seconds stop the GPS recording. This way there is always overlap of GPS measurements for the video which should result in a more easy synchronissation of video and GPS data in Kinomap.
 
@@ -94,17 +89,23 @@ The program does :
 
 its a 64 bit version. No further actions required.
 
-![Screenshot](pics/Windows.png)
+<p align="center">
+   <img src="pics/Windows.png" alt="Windows .exe"/>
+</p>
 
 # Run on Linux
 
 Its a 64 bit version. You may have to install several packages before the program runs. See:
 http://forums.purebasic.com/english/viewtopic.php?f=15&t=74875 . This can be a real challenge if you are not familiar with Linux. The Purebasic IDE still crashes when I try to run the app but the compiled app works fine.
 
-![Screenshot](pics/Linux.png)
+<p align="center">
+   <img src="pics/Linux.png" alt="Linux."/
+</p>
 
 # Run on MacOs
 
 Its a 64 bit Intel/AMD version (M1 via Rosetta ?). No further actions needed.
 
-![Screenshot](pics/Imac.png)
+<p align="center">
+   <img src="pics/Imac.png" alt="Imac app"/>
+</p>
